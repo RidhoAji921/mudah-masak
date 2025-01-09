@@ -24,5 +24,47 @@
                 </div>
             </div>
         </section>
+        <section class="px-40 py-1 flex flex-col gap-2">
+            <h2 class="text-xl font-semibold">Rekomendasi Resep</h2>
+            <div class="recipe-card flex gap-3 p-3 border-[1px] border-gray-500 rounded-md h-[140px]">
+                <div class="h-full aspect-square">
+                    <img src="{{ asset('assets/img/pexels-anntarazevich-6937455.jpg') }}" alt="" class="w-full h-full object-cover rounded-md">
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold">Nasi Goreng Mas Andre</h2>
+                    <p class="max-h-[40px] overflow-y-scroll">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores dignissimos provident at. Minima repellat voluptatem harum ullam molestias maxime vitae et, magnam quo porro repellendus non beatae. Quae, adipisci placeat.</p>
+                    <p><span class="font-medium">Bahan : </span>Nasi, Cabai Merah, Bawang Putih, Bawang Merah, Lada, Saus Tiram, Garam, Micin</p>
+                    <p><span class="font-medium">Alat : </span>Wajan, Sodet</p>
+                </div>
+            </div>
+            <div class="recipe-card flex gap-3 p-3 border-[1px] border-gray-500 rounded-md h-[140px]">
+                <div class="h-full aspect-square">
+                    <img src="{{ asset('assets/img/pexels-anntarazevich-6937455.jpg') }}" alt="" class="w-full h-full object-cover rounded-md">
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold">Nasi Goreng Mas Andre</h2>
+                    <p class="max-h-[40px] overflow-y-scroll">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores dignissimos provident at. Minima repellat voluptatem harum ullam molestias maxime vitae et, magnam quo porro repellendus non beatae. Quae, adipisci placeat.</p>
+                    <p><span class="font-medium">Bahan : </span>Nasi, Cabai Merah, Bawang Putih, Bawang Merah, Lada, Saus Tiram, Garam, Micin</p>
+                    <p><span class="font-medium">Alat : </span>Wajan, Sodet</p>
+                </div>
+            </div>
+            <div class="recipe-card flex gap-3 p-3 border-[1px] border-gray-500 rounded-md h-[140px]">
+                <div class="h-full aspect-square">
+                    <img src="{{ asset('assets/img/pexels-anntarazevich-6937455.jpg') }}" alt="" class="w-full h-full object-cover rounded-md">
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold">Nasi Goreng Mas Andre</h2>
+                    <p class="max-h-[40px] overflow-y-scroll">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores dignissimos provident at. Minima repellat voluptatem harum ullam molestias maxime vitae et, magnam quo porro repellendus non beatae. Quae, adipisci placeat.</p>
+                    <p><span class="font-medium">Bahan : </span>Nasi, Cabai Merah, Bawang Putih, Bawang Merah, Lada, Saus Tiram, Garam, Micin</p>
+                    <p><span class="font-medium">Alat : </span>Wajan, Sodet</p>
+                </div>
+            </div>
+        </section>
+        <section class="px-40 py-1">
+            <h2 class="text-xl font-semibold">Bahan Populer</h2>
+            <div>
+                
+            </div>
+        </section>
     </body>
 </html>

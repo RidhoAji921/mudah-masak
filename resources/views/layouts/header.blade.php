@@ -1,4 +1,4 @@
-<nav class="bg-orange-300 border-b-[2px] border-black px-4 py-[6px] flex justify-between select-none">
+<nav class="bg-orange-300 border-b-[2px] border-black px-4 py-[6px] flex justify-between select-none sticky top-0 left-0 z-10 w-full">
     <div>
         <a href="/">
             <img src="{{ asset('assets/img/mudah masak.png') }}" alt="Mudah Masak Logo" class="w-20">
