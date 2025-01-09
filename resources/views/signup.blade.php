@@ -17,7 +17,7 @@
                 <label for="email">Email</label>
                 <div class="flex border-2 {{ $errors->has('email') ? 'border-red-700' : 'border-gray-300' }} focus-within:border-orange-300 p-1 rounded-lg gap-1">
                     <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-mail"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg>
-                    <input type="email" id="email" name="email" required class="w-full focus:outline-none" value="{{ old('name') }}" autofocus>
+                    <input type="email" id="email" name="email" required class="w-full focus:outline-none" value="{{ old('email') }}" autofocus>
                 </div>
                 @error('email')
                     <p class="text-red-500 text-sm">{{ $message }}</p>
