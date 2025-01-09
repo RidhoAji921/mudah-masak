@@ -6,7 +6,7 @@
         @vite('resources/css/app.css')
         <title>Mudah Masak</title>
     </head>
-    <body class="overflow-x-hidden">
+    <body class="overflow-x-hidden mt-[60px]">
         @include("layouts.header")
         <section>
             <div class="relative">
@@ -62,8 +62,67 @@
         </section>
         <section class="px-40 py-1">
             <h2 class="text-xl font-semibold">Bahan Populer</h2>
-            <div>
-                
+            <div class="grid grid-cols-5 gap-1">
+                <div class="relative aspect-square border-2 border-gray-700">
+                    <img src="{{ asset("assets/img/pexels-catscoming-750948.jpg") }}" alt="Gambar 3" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-xl font-bold">
+                        Bawang Putih
+                    </div>
+                </div>
+                <div class="relative aspect-square border-2 border-gray-700">
+                    <img src="{{ asset("assets/img/pexels-catscoming-750948.jpg") }}" alt="Gambar 3" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-xl font-bold">
+                        Bawang Putih
+                    </div>
+                </div>
+                <div class="relative aspect-square border-2 border-gray-700">
+                    <img src="{{ asset("assets/img/pexels-catscoming-750948.jpg") }}" alt="Gambar 3" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-xl font-bold">
+                        Bawang Putih
+                    </div>
+                </div>
+                <div class="relative aspect-square border-2 border-gray-700">
+                    <img src="{{ asset("assets/img/pexels-catscoming-750948.jpg") }}" alt="Gambar 3" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-xl font-bold">
+                        Bawang Putih
+                    </div>
+                </div>
+                <div class="relative aspect-square border-2 border-gray-700">
+                    <img src="{{ asset("assets/img/pexels-catscoming-750948.jpg") }}" alt="Gambar 3" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-xl font-bold">
+                        Bawang Putih
+                    </div>
+                </div>
+                <div class="relative aspect-square border-2 border-gray-700">
+                    <img src="{{ asset("assets/img/pexels-catscoming-750948.jpg") }}" alt="Gambar 3" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-xl font-bold">
+                        Bawang Putih
+                    </div>
+                </div>
+                <div class="relative aspect-square border-2 border-gray-700">
+                    <img src="{{ asset("assets/img/pexels-catscoming-750948.jpg") }}" alt="Gambar 3" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-xl font-bold">
+                        Bawang Putih
+                    </div>
+                </div>
+                <div class="relative aspect-square border-2 border-gray-700">
+                    <img src="{{ asset("assets/img/pexels-catscoming-750948.jpg") }}" alt="Gambar 3" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-xl font-bold">
+                        Bawang Putih
+                    </div>
+                </div>
+                <div class="relative aspect-square border-2 border-gray-700">
+                    <img src="{{ asset("assets/img/pexels-catscoming-750948.jpg") }}" alt="Gambar 3" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-xl font-bold">
+                        Bawang Putih
+                    </div>
+                </div>
+                <div class="relative aspect-square border-2 border-gray-700">
+                    <img src="{{ asset("assets/img/pexels-catscoming-750948.jpg") }}" alt="Gambar 3" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-xl font-bold">
+                        Bawang Putih
+                    </div>
+                </div>
             </div>
         </section>
     </body>

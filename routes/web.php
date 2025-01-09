@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\ProfilController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -13,3 +14,5 @@ Route::get('/signup', [AuthenticationController::class, 'signupView'])->name('si
 Route::post('/logout', [AuthenticationController::class, 'userLogout']);
 Route::post('/login', [AuthenticationController::class, 'userLogin']);
 Route::post('/signup', [AuthenticationController::class, 'userSignup']);
+
+Route::get('/profil', [ProfilController::class, 'profilView'])->name('profil');
