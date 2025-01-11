@@ -6,7 +6,7 @@
         @vite('resources/css/app.css')
         <title>Mudah Masak</title>
     </head>
-    <body class="overflow-x-hidden mt-[60px]">
+    <body class="overflow-x-hidden mt-[50px]">
         @include("layouts.header")
         <section>
             <div class="relative">
