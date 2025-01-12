@@ -26,6 +26,9 @@ export default {
             backgroundImage: {
                 'vignette': 'radial-gradient(circle, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.8) 100%)',
             },
+            transitionProperty: {
+                width: 'width',
+            },
         },
     },
     plugins: [],

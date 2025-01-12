@@ -19,9 +19,30 @@
                     <img src="{{ asset('assets/img/pexels-saulo-leite-1491182-17637081.jpg') }}" alt="" class="h-[40vh]">
                     <img src="{{ asset('assets/img/pexels-mikhail-nilov-6957990.jpg') }}" alt="" class="h-[40vh]">
                 </div>
-                <div class="absolute flex items-center justify-center inset-0 bg-vignette pointer-events-none">
-                    <p class="text-5xl font-extrabold text-white">Karena Masak Itu Mudah</p>
-                </div>
+                @auth
+                    <div class="absolute flex flex-col items-center justify-center inset-0 bg-vignette">
+                        <p class="text-5xl font-extrabold text-white">Karena Masak Itu Mudah</p>
+                        <div class="flex gap-5">
+                            <a href="profile/#your-posts" class="text-xl font-extrabold text-white hover:text-gray-300 mt-3">Postingan Anda</a>
+                            <a href="profile/#your-recipes" class="text-xl font-extrabold text-white hover:text-gray-300 mt-3">Resep Anda</a>
+                            <a href="" class="text-xl font-extrabold text-white hover:text-gray-300 mt-3">Koleksi Anda</a>
+                        </div>
+                    </div>
+                @else
+                    <div class="absolute flex flex-col items-center justify-center inset-0 bg-vignette">
+                        <p class="text-5xl font-extrabold text-white">Karena Masak Itu Mudah</p>
+                        <a href="" class="text-xl font-extrabold text-white hover:text-gray-300 mt-3">Mulai jadi pengguna</a>
+                    </div>
+                @endauth
+            </div>
+        </section>
+        <section class="px-40 py-1 flex flex-col gap-2">
+            <h2 class="text-xl font-semibold">Postingan Populer</h2>
+            <div class="grid grid-cols-4 gap-1">
+                <img src="{{ asset("assets/img/pexels-catscoming-750948.jpg") }}" alt="Gambar 3" class="w-full h-full object-cover max-h-[240px]">
+                <img src="{{ asset("assets/img/pexels-anntarazevich-6937455.jpg") }}" alt="Gambar 3" class="w-full h-full object-cover max-h-[240px]">
+                <img src="{{ asset("assets/img/pexels-ivan-samkov-4783980.jpg") }}" alt="Gambar 3" class="w-full h-full object-cover max-h-[240px]">
+                <img src="{{ asset("assets/img/pexels-mikhail-nilov-6957990.jpg") }}" alt="Gambar 3" class="w-full h-full object-cover max-h-[240px]">
             </div>
         </section>
         <section class="px-40 py-1 flex flex-col gap-2">
