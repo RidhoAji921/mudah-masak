@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfilController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,3 +17,5 @@ Route::post('/login', [AuthenticationController::class, 'userLogin']);
 Route::post('/signup', [AuthenticationController::class, 'userSignup']);
 
 Route::get('/profil', [ProfilController::class, 'profilView'])->middleware('auth')->name('profil');
+
+Route::get('/create-post', [PostController::class, 'createPostView'])->middleware('auth')->name('create-post');
