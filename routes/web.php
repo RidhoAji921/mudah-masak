@@ -19,3 +19,4 @@ Route::post('/signup', [AuthenticationController::class, 'userSignup']);
 Route::get('/profil', [ProfilController::class, 'profilView'])->middleware('auth')->name('profil');
 
 Route::get('/create-post', [PostController::class, 'createPostView'])->middleware('auth')->name('create-post');
+Route::post('/create-post', [PostController::class, 'store'])->name('post.store');
