@@ -39,10 +39,10 @@
         <section class="px-40 py-1 flex flex-col gap-2">
             <h2 class="text-xl font-semibold">Postingan Populer</h2>
             <div class="grid grid-cols-4 gap-1">
-                <img src="{{ asset("assets/img/pexels-catscoming-750948.jpg") }}" alt="Gambar 3" class="w-full h-full object-cover max-h-[240px]">
-                <img src="{{ asset("assets/img/pexels-anntarazevich-6937455.jpg") }}" alt="Gambar 3" class="w-full h-full object-cover max-h-[240px]">
-                <img src="{{ asset("assets/img/pexels-ivan-samkov-4783980.jpg") }}" alt="Gambar 3" class="w-full h-full object-cover max-h-[240px]">
-                <img src="{{ asset("assets/img/pexels-mikhail-nilov-6957990.jpg") }}" alt="Gambar 3" class="w-full h-full object-cover max-h-[240px]">
+                <a href="/post" class="aspect-square"><img src="{{ asset("assets/img/pexels-catscoming-750948.jpg") }}" alt="Gambar 3" class="w-full h-full object-cover"></a>
+                <a href="/post" class="aspect-square"><img src="{{ asset("assets/img/pexels-anntarazevich-6937455.jpg") }}" alt="Gambar 3" class="w-full h-full object-cover"></a>
+                <a href="/post" class="aspect-square"><img src="{{ asset("assets/img/pexels-ivan-samkov-4783980.jpg") }}" alt="Gambar 3" class="w-full h-full object-cover"></a>
+                <a href="/post" class="aspect-square"><img src="{{ asset("assets/img/pexels-mikhail-nilov-6957990.jpg") }}" alt="Gambar 3" class="w-full h-full object-cover"></a>
             </div>
         </section>
         <section class="px-40 py-1 flex flex-col gap-2">
