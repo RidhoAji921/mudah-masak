@@ -21,4 +21,4 @@ Route::get('/profile', [ProfileController::class, 'profileView'])->middleware('a
 Route::get('/create-post', [PostController::class, 'createPostView'])->middleware('auth')->name('create-post');
 Route::post('/create-post', [PostController::class, 'store'])->name('post.store');
 
-Route::get('/post', [PostController::class, 'postView'])->name('post');
+Route::get('/posts/{slug}', [PostController::class, 'postShow'])->name('post.show');

@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.category-item.selected {
+    background-color: #fb923c; /* Biru Tailwind */
+    color: white;
+}

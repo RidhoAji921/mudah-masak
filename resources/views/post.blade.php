@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.0/min/dropzone.min.css" />
         @vite('resources/css/app.css')
-        <title>Judul Postingan</title>
+        <title>{{ $post->title }}</title>
     </head>
     <body class="overflow-x-hidden mt-[50px]">
         @include("layouts.header")
@@ -15,8 +15,8 @@
         <section class="py-2 px-3">
             <div class="flex justify-between">
                 <div class="flex gap-2">
-                    <h2 class="text-xl font-semibold">Judul Resep</h2>
-                    <h2 class="text-xl font-normal">oleh <a href="" class="hover:text-gray-700">Mas Azril</a></h2>
+                    <h2 class="text-xl font-semibold">{{ $post->title }}</h2>
+                    <h2 class="text-xl font-normal">oleh <a href="" class="hover:text-gray-700">{{ $post->user()->name }}</a></h2>
                 </div>
                 <div class="flex gap-2">
                     <div class="flex gap-1">
