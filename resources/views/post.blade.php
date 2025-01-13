@@ -13,10 +13,15 @@
             <img src="{{ asset("assets/img/pexels-catscoming-750948.jpg") }}" alt="" class="h-full">
         </section>
         <section class="py-2 px-3">
+            <div class="flex flex-wrap gap-2">
+                @foreach ($post->categories as $category)
+                    <div class="p-1 bg-orange-300 rounded-md">{{ $category->category }}</div>
+                @endforeach
+            </div>
             <div class="flex justify-between">
                 <div class="flex gap-2">
                     <h2 class="text-xl font-semibold">{{ $post->title }}</h2>
-                    <h2 class="text-xl font-normal">oleh <a href="" class="hover:text-gray-700">{{ $post->user()->name }}</a></h2>
+                    <h2 class="text-xl font-normal">oleh <a href="" class="hover:text-gray-700">{{ $post->author->name }}</a></h2>
                 </div>
                 <div class="flex gap-2">
                     <div class="flex gap-1">
@@ -29,7 +34,7 @@
                     </div>
                 </div>
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt id explicabo aut exercitationem inventore adipisci aperiam dolor. Ducimus quasi quam pariatur voluptate, quia sunt perspiciatis, aperiam fugiat recusandae sit cupiditate!</p>
+            <p>{{ $post->description }}</p>
         </section>
     </body>
 </html>
