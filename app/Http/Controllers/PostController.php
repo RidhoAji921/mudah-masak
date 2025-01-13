@@ -26,16 +26,17 @@ class PostController extends Controller
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
         ]);
         
-        $imageName = time().'.'.$validatedRequest['image']->getClientOriginalExtension();
-        $imagePath = $validatedRequest['image']->move(public_path('images'), $imageName);
-        $validatedRequest['slug'] = Str::slug($validatedRequest['title']);
+        $validatedRequest['slug'] = Str::slug($validatedRequest['title'])."-".time();
         $validatedRequest['user_id'] = Auth::user()->id;
-        $validatedRequest['thumbnail'] = $imagePath;
+
+        $imageName = $validatedRequest['slug'].'.'.$validatedRequest['image']->getClientOriginalExtension();
+        $imagePath = $validatedRequest['image']->move(public_path('images'), $imageName);
+        $validatedRequest['thumbnail'] = $imageName;
 
         $post = Post::create([
             'title' => $validatedRequest['title'],
             'user_id' => $validatedRequest['user_id'],
-            'slug' => $validatedRequest['slug']."-".time(),
+            'slug' => $validatedRequest['slug'],
             'description' => $validatedRequest['description'],
             'thumbnail' => $validatedRequest['thumbnail'],
         ]);
@@ -43,6 +44,6 @@ class PostController extends Controller
         $categoryIds = explode(',', $request->categories);
         $post->categories()->attach($categoryIds);
 
-        dd($request->categories);
+        return redirect()->route('post.show', $post->slug);
     }
 }

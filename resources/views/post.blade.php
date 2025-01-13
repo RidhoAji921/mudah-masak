@@ -10,7 +10,7 @@
     <body class="overflow-x-hidden mt-[50px]">
         @include("layouts.header")
         <section class="w-full h-[60vh] bg-black flex justify-center items-center">
-            <img src="{{ asset("assets/img/pexels-catscoming-750948.jpg") }}" alt="" class="h-full">
+            <img src="{{ "\\images\\".$post->thumbnail }}" alt="{{ $post->slug }}" class="h-full">
         </section>
         <section class="py-2 px-3">
             <div class="flex flex-wrap gap-2">

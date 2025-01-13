@@ -23,8 +23,8 @@
                     <div class="absolute flex flex-col items-center justify-center inset-0 bg-vignette">
                         <p class="text-5xl font-extrabold text-white">Karena Masak Itu Mudah</p>
                         <div class="flex gap-5">
-                            <a href="profile/#your-posts" class="text-xl font-extrabold text-white hover:text-gray-300 mt-3">Postingan Anda</a>
-                            <a href="profile/#your-recipes" class="text-xl font-extrabold text-white hover:text-gray-300 mt-3">Resep Anda</a>
+                            <a href="/create-post" class="text-xl font-extrabold text-white hover:text-gray-300 mt-3">Buat Postingan</a>
+                            <a href="profile/#your-recipes" class="text-xl font-extrabold text-white hover:text-gray-300 mt-3">Buat Resep</a>
                             <a href="" class="text-xl font-extrabold text-white hover:text-gray-300 mt-3">Koleksi Anda</a>
                         </div>
                     </div>
