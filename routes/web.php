@@ -1,13 +1,15 @@
 <?php
 
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+// Route::get('/', function () {
+//     return view('home');
+// })->name('home');
+Route::get('/', [HomeController::class, 'viewHome'])->name('home');
 
 Route::get('/login', [AuthenticationController::class, 'loginView'])->middleware('guest')->name('login');
 Route::get('/signup', [AuthenticationController::class, 'signupView'])->middleware('guest')->name('signup');

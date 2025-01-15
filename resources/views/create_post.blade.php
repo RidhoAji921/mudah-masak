@@ -18,8 +18,8 @@
                 </div>
                 <div class="flex flex-col">
                     <label>Gambar Tampilan</label>
-                    <input type="file" name="image">
-                    <div class="dropzone" id="imageDropzone" class="w-fit"></div>
+                    <input type="file" name="image" id="image" onchange="previewImage()">
+                    <img id="img-preview" class="my-3">
                 </div>
                 <div class="flex flex-col">
                     <label for="description">Deskripsi</label>
@@ -33,37 +33,34 @@
                 </div>
                 <div class="mt-4">
                     <div class="flex mb-2">
-                        <h3>Kategori</h3>
-                        <a href="" class="ml-4"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg></a>
+                        <h3 class="mr-2">Kategori</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
                         <input type="text" id="search-category" class="focus:outline-none border-b-[1px] border-black">
                     </div>
                     <div id="categories-container" class="flex flex-wrap gap-2"></div>
                     <input type="hidden" name="categories" id="categories-input">
                 </div>
                 <div class="w-full mt-4 flex justify-end">
-                    <input type="submit" value="Posting" class="bg-orange-300 hover:bg-orange-400 p-2 rounded-lg">
+                    <input type="submit" value="Posting" class="bg-orange-300 hover:bg-orange-400 p-2 rounded-lg cursor-pointer">
                 </div>
             </form>
         </section>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.0/min/dropzone.min.js"></script>
-        <script>
-            Dropzone.options.imageDropzone = {
-                url: '{{ route('post.store') }}', // URL tujuan untuk menyimpan gambar
-                paramName: "image", // Nama parameter file yang akan dikirim ke server
-                maxFilesize: 2, // Maksimum ukuran file dalam MB
-                maxFiles: 1,
-                acceptedFiles: "image/*", // Hanya menerima gambar
-                dictDefaultMessage: "Seret dan lepas gambar di sini untuk mengunggah.",
-                init: function() {
-                    this.on("success", function(file, response) {
-                        console.log(response); // Menampilkan respons server setelah gambar berhasil diunggah
-                    });
-                }
-            };
-        </script>
 
         <script>
+            function previewImage() {
+                const image = document.querySelector('#image');
+                const imagePreview = document.querySelector('#img-preview');
+                imagePreview.style.display = 'block';
+                imagePreview.style.width = '30%';
+
+                const oFReader = new FileReader();
+                oFReader.readAsDataURL(image.files[0]);
+                oFReader.onload = function(oFREvent){
+                    imagePreview.src = oFREvent.target.result;
+                }
+            }
+
             let selectedCategories = [];
             $(document).ready(function () {
                 // Fungsi untuk memuat kategori

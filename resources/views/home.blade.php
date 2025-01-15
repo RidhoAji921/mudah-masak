@@ -37,12 +37,19 @@
             </div>
         </section>
         <section class="px-40 py-1 flex flex-col gap-2">
-            <h2 class="text-xl font-semibold">Postingan Populer</h2>
+            <h2 class="text-xl font-semibold">Postingan Terbaru</h2>
             <div class="grid grid-cols-4 gap-1">
-                <a href="/post" class="aspect-square"><img src="{{ asset("assets/img/pexels-catscoming-750948.jpg") }}" alt="Gambar 3" class="w-full h-full object-cover"></a>
+                @forelse ($latestPosts as $post)
+                <a href="/posts/{{ $post->slug }}" class="aspect-square">
+                    <img src="{{ "\\images\\".$post->thumbnail }}" alt="{{ $post->title }}" class="w-full h-full object-cover">
+                </a>
+                @empty
+                    <p>Tidak ada postingan terbaru</p>
+                @endforelse
+                {{-- <a href="/post" class="aspect-square"><img src="{{ asset("assets/img/pexels-catscoming-750948.jpg") }}" alt="Gambar 3" class="w-full h-full object-cover"></a>
                 <a href="/post" class="aspect-square"><img src="{{ asset("assets/img/pexels-anntarazevich-6937455.jpg") }}" alt="Gambar 3" class="w-full h-full object-cover"></a>
                 <a href="/post" class="aspect-square"><img src="{{ asset("assets/img/pexels-ivan-samkov-4783980.jpg") }}" alt="Gambar 3" class="w-full h-full object-cover"></a>
-                <a href="/post" class="aspect-square"><img src="{{ asset("assets/img/pexels-mikhail-nilov-6957990.jpg") }}" alt="Gambar 3" class="w-full h-full object-cover"></a>
+                <a href="/post" class="aspect-square"><img src="{{ asset("assets/img/pexels-mikhail-nilov-6957990.jpg") }}" alt="Gambar 3" class="w-full h-full object-cover"></a> --}}
             </div>
         </section>
         <section class="px-40 py-1 flex flex-col gap-2">
