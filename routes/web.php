@@ -26,6 +26,7 @@ Route::get('/create-post', [PostController::class, 'createPostView'])->middlewar
 Route::post('/create-post', [PostController::class, 'store'])->name('post.store');
 
 Route::get('/posts/{slug}', [PostController::class, 'postShow'])->name('post.show');
+Route::get('/newest-posts', [PostController::class, 'newestPostShow'])->name('post.newest');
 
 Route::get('/search-post', [SearchController::class, 'searchPostPage'])->name('posts.search');
 

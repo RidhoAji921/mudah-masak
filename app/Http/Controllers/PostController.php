@@ -47,4 +47,9 @@ class PostController extends Controller
 
         return redirect()->route('post.show', $post->slug);
     }
+
+    function newestPostShow() {
+        $latestPosts = Post::latest()->paginate(20);
+        return view('newest_post', compact('latestPosts'));
+    }
 }
