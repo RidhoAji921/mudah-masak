@@ -9,7 +9,7 @@ class SearchController extends Controller
 {
     function searchPostPage(Request $request) {
         $query = $request->input('query');
-        $posts = Post::where('title', 'like', '%' . $query . '%')
+        $posts = Post::with('author')->where('title', 'like', '%' . $query . '%')
                      ->orWhere('description', 'like', '%' . $query . '%')
                      ->get();
 

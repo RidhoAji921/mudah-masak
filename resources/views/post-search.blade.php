@@ -18,7 +18,8 @@
                 </div>
                 <div>
                     <a href="/posts/{{ $post->slug }}"><h2 class="text-xl font-semibold hover:text-gray-500">{{ $post->title }}</h2></a>
-                    <p class="max-h-[40px] overflow-y-scroll">{{ $post->description }}</p>
+                    <p>Oleh <a href="/user/{{ $post->author->username }}" class="hover:text-gray-500">{{ $post->author->name }}</a></p>
+                    <p class="">{{ $post->description }}</p>
                 </div>
             </div>
             @empty
