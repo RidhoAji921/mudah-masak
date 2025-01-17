@@ -22,7 +22,6 @@ class PostController extends Controller
         $validatedRequest = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required',
-            'categories' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
         ]);
         
@@ -30,7 +29,7 @@ class PostController extends Controller
         $validatedRequest['user_id'] = Auth::user()->id;
 
         $imageName = $validatedRequest['slug'].'.'.$validatedRequest['image']->getClientOriginalExtension();
-        $imagePath = $validatedRequest['image']->move(public_path('images'), $imageName);
+        $validatedRequest['image']->move(public_path('images'), $imageName);
         $validatedRequest['thumbnail'] = $imageName;
 
         $post = Post::create([
@@ -41,8 +40,10 @@ class PostController extends Controller
             'thumbnail' => $validatedRequest['thumbnail'],
         ]);
 
-        $categoryIds = explode(',', $request->categories);
-        $post->categories()->attach($categoryIds);
+        if($request->categories){
+            $categoryIds = explode(',', $request->categories);
+            $post->categories()->attach($categoryIds);
+        }
 
         return redirect()->route('post.show', $post->slug);
     }
