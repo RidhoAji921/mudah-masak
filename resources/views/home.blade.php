@@ -31,7 +31,7 @@
                 @else
                     <div class="absolute flex flex-col items-center justify-center inset-0 bg-vignette">
                         <p class="text-5xl font-extrabold text-white">Karena Masak Itu Mudah</p>
-                        <a href="" class="text-xl font-extrabold text-white hover:text-gray-300 mt-3">Mulai jadi pengguna</a>
+                        <p class="text-xl text-white font-semibold"><a href="/signup" class="font-extrabold hover:text-gray-300 mt-3">Mulai jadi pengguna</a> atau <a href="/login" class="font-extrabold hover:text-gray-300 mt-3">Masuk</a></p>
                     </div>
                 @endauth
             </div>
