@@ -25,7 +25,9 @@ class DatabaseSeeder extends Seeder
         //     'Category' => 'Cemilan',
         // ]);
         $this->call([
-            CategorySeeder::class,
+            // CategorySeeder::class,
+            IngredientSeeder::class,
+            ToolSeeder::class,
         ]);
     }
 }
