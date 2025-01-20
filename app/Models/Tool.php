@@ -7,4 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Tool extends Model
 {
     public $timestamps = false;
+
+    public function recipes()
+    {
+        return $this->belongsToMany(Recipe::class, 'category_recipe');
+    }
 }
