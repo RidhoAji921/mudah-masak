@@ -45,24 +45,24 @@
                     <div class="flex mb-2">
                         <h3 class="mr-2">Alat</h3>
                         <svg xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
-                        <input type="text" id="search-category" class="focus:outline-none border-b-[1px] border-black">
+                        <input type="text" id="search-tool" class="focus:outline-none border-b-[1px] border-black">
                     </div>
-                    <div id="categories-container" class="flex flex-wrap gap-2"></div>
-                    <input type="hidden" name="categories" id="categories-input">
+                    <div id="tools-container" class="flex flex-wrap gap-2"></div>
+                    <input type="hidden" name="tools" id="tools-input">
                 </div>
                 <div class="mt-4">
                     <div class="flex mb-2">
                         <h3 class="mr-2">Bahan</h3>
                         <svg xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
-                        <input type="text" id="search-category" class="focus:outline-none border-b-[1px] border-black">
+                        <input type="text" id="search-ingredient" class="focus:outline-none border-b-[1px] border-black">
                     </div>
-                    <div id="categories-container" class="flex flex-wrap gap-2"></div>
-                    <input type="hidden" name="categories" id="categories-input">
+                    <div id="ingredients-container" class="flex flex-wrap gap-2"></div>
+                    <input type="hidden" name="ingredients" id="ingredients-input">
                 </div>
                 <div class="mt-4">
                     <div class="flex mb-2">
                         <h3 class="mr-2">Langkah</h3>
-                        <a id="add-step"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-square-rounded-plus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z" /><path d="M15 12h-6" /><path d="M12 9v6" /></svg></a>
+                        <a id="add-step" class="cursor-pointer"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-square-rounded-plus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z" /><path d="M15 12h-6" /><path d="M12 9v6" /></svg></a>
                     </div>
                     <input type="hidden" name="steps" id="steps-input">
                     <div class="flex flex-col gap-2" id="steps-container">
@@ -97,20 +97,10 @@
                 // Fungsi untuk menambahkan langkah baru
                 $('#add-step').click(function () {
                     stepCount++;
-                    // const stepHtml = `
-                    //     <div class="step mb-3">
-                    //         <label for="steps[${stepCount}][description]" class="form-label">Langkah ${stepCount + 1}</label>
-                    //         <textarea name="steps[${stepCount}][description]" class="form-control mb-2" required></textarea>
-                    //         <label for="steps[${stepCount}][image]" class="form-label">Gambar (Opsional)</label>
-                    //         <input type="file" name="steps[${stepCount}][image]" class="form-control mb-2">
-                    //         <button type="button" class="btn btn-danger remove-step">Hapus Langkah</button>
-                    //         <hr>
-                    //     </div>
-                    // `;
                     const stepHtml = `<div class="flex flex-col gap-2 p-2 border-black border-2 rounded-md step">
                             <div class="flex gap-1">
                                 <h2 class="font-medium">Langkah ${stepCount}</h2>
-                                <svg class="remove-step" xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-trash"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l16 0" /><path d="M10 11l0 6" /><path d="M14 11l0 6" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg>
+                                <svg class="remove-step cursor-pointer" xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-trash"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l16 0" /><path d="M10 11l0 6" /><path d="M14 11l0 6" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg>
                             </div>
                             <input type="text" name="steps[${stepCount}][title]" id="nama" placeholder="Langkah 1" class="border-b-[1px] border-black focus:border-b-2 focus:outline-none flex-1 box-border">
                             <textarea 
@@ -145,6 +135,174 @@
         
                     stepCount = $('#steps-container .step').length;
                 });
+            });
+
+            let selectedCategories = [];
+            let selectedTools = [];
+            let selectedIngredients = [];
+            $(document).ready(function () {
+                //=============== CATEGORIES ===============
+                function loadCategories(query = '') {
+                    $.ajax({
+                        url: "{{ route('categories.search') }}",
+                        method: "GET",
+                        data: { search: query },
+                        success: function (data) {
+                            let container = $('#categories-container');
+                            container.empty();
+
+                            if (data.length > 0) {
+                                // Loop hasil pencarian
+                                data.forEach(function (category) {
+                                    let selected = selectedCategories.includes(category.id)? "selected" : "";
+                                    container.append(`
+                                        <div data-id="${category.id}" class="category-item bg-orange-300 p-1 rounded-md hover:bg-orange-500 cursor-pointer select-none whitespace-nowrap ${selected}">
+                                            ${category.category}
+                                        </div>
+                                    `);
+                                });
+                            } else {
+                                container.append(`
+                                    <p class="col-span-3 text-gray-500">Tidak ada kategori ditemukan.</p>
+                                `);
+                            }
+                            $('.category-item').on('click', function() {
+                                const categoryId = $(this).data('id');
+                                $(this).toggleClass('selected');
+
+                                if ($(this).hasClass('selected')) {
+                                    selectedCategories.push(categoryId);
+                                } else {
+                                    selectedCategories = selectedCategories.filter(id => id !== categoryId);
+                                }
+
+                                $('#categories-input').val(selectedCategories);
+                            });
+                        },
+                        error: function () {
+                            alert('Terjadi kesalahan, coba lagi nanti.');
+                        }
+                    });
+                }
+
+                $('#search-category').on('input', function () {
+                    let query = $(this).val();
+                    loadCategories(query);
+                });
+
+                $('#clear-search').on('click', function () {
+                    $('#search').val('');
+                    loadCategories();
+                });
+
+                loadCategories();
+                //=============== END CATEGORIES ===============
+
+                //=============== TOOLS ===============
+                function loadTools(query = '') {
+                    $.ajax({
+                        url: "{{ route('tools.search') }}",
+                        method: "GET",
+                        data: { search: query },
+                        success: function (data) {
+                            let container = $('#tools-container');
+                            container.empty();
+
+                            if (data.length > 0) {
+                                // Loop hasil pencarian
+                                data.forEach(function (tool) {
+                                    let selected = selectedTools.includes(tool.id)? "selected" : "";
+                                    container.append(`
+                                        <div data-id="${tool.id}" class="tool-item bg-orange-300 p-1 rounded-md hover:bg-orange-500 cursor-pointer select-none whitespace-nowrap ${selected}">
+                                            ${tool.name}
+                                        </div>
+                                    `);
+                                });
+                            } else {
+                                container.append(`
+                                    <p class="col-span-3 text-gray-500">Tidak ada alat ditemukan.</p>
+                                `);
+                            }
+                            $('.tool-item').on('click', function() {
+                                const toolId = $(this).data('id');
+                                console.log(`${toolId} diklik`);
+                                $(this).toggleClass('selected');
+
+                                if ($(this).hasClass('selected')) {
+                                    selectedTools.push(toolId);
+                                } else {
+                                    selectedTools = selectedTools.filter(id => id !== toolId);
+                                }
+
+                                $('#tools-input').val(selectedTools);
+                            });
+                        },
+                        error: function () {
+                            alert('Terjadi kesalahan, coba lagi nanti.');
+                        }
+                    });
+                }
+
+                $('#search-tool').on('input', function () {
+                    let query = $(this).val();
+                    loadTools(query);
+                });
+
+                loadTools();
+                //=============== END TOOLS ===============
+
+                //=============== INGREDIENTS ===============
+                function loadIngredients(query = '') {
+                    $.ajax({
+                        url: "{{ route('ingredients.search') }}",
+                        method: "GET",
+                        data: { search: query },
+                        success: function (data) {
+                            let container = $('#ingredients-container');
+                            container.empty();
+
+                            if (data.length > 0) {
+                                // Loop hasil pencarian
+                                data.forEach(function (ingredient) {
+                                    let selected = selectedIngredients.includes(ingredient.id)? "selected" : "";
+                                    container.append(`
+                                        <div data-id="${ingredient.id}" class="ingredient-item bg-orange-300 p-1 rounded-md hover:bg-orange-500 cursor-pointer select-none whitespace-nowrap ${selected}">
+                                            ${ingredient.name}
+                                        </div>
+                                    `);
+                                });
+                            } else {
+                                container.append(`
+                                    <p class="col-span-3 text-gray-500">Tidak ada bahan ditemukan.</p>
+                                `);
+                            }
+                            $('.ingredient-item').on('click', function() {
+                                const ingredientId = $(this).data('id');
+                                console.log(`${ingredientId} diklik`);
+                                $(this).toggleClass('selected');
+
+                                if ($(this).hasClass('selected')) {
+                                    selectedIngredients.push(ingredientId);
+                                } else {
+                                    selectedIngredients = selectedIngredients.filter(id => id !== ingredientId);
+                                }
+
+                                $('#ingredients-input').val(selectedIngredients);
+                            });
+                        },
+                        error: function () {
+                            alert('Terjadi kesalahan, coba lagi nanti.');
+                        }
+                    });
+                }
+
+                $('#search-ingredient').on('input', function () {
+                    let query = $(this).val();
+                    loadIngredients(query);
+                });
+
+                loadIngredients();
+                //=============== END INGREDIENTS ===============
             });
         </script>
     </body>

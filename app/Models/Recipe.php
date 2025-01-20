@@ -15,11 +15,11 @@ class Recipe extends Model
 
     public function ingredients()
     {
-        return $this->belongsToMany(Ingredient::class, 'category_post');
+        return $this->belongsToMany(Ingredient::class, 'ingredient_post');
     }
 
     public function tools()
     {
-        return $this->belongsToMany(Tool::class, 'category_post');
+        return $this->belongsToMany(Tool::class, 'tool_post');
     }
 }
