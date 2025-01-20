@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -31,3 +32,5 @@ Route::get('/newest-posts', [PostController::class, 'newestPostShow'])->name('po
 Route::get('/search-post', [SearchController::class, 'searchPostPage'])->name('posts.search');
 
 Route::get('/user/{username}', [UserController::class, 'userView'])->name('user');
+
+Route::get('/recipe/create', [RecipeController::class, 'createView'])->name('recipe-create');

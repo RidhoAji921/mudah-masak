@@ -24,7 +24,7 @@
                         <p class="text-5xl font-extrabold text-white">Karena Masak Itu Mudah</p>
                         <div class="flex gap-5">
                             <a href="/create-post" class="text-xl font-extrabold text-white hover:text-gray-300 mt-3">Buat Postingan</a>
-                            <a href="profile/#your-recipes" class="text-xl font-extrabold text-white hover:text-gray-300 mt-3">Buat Resep</a>
+                            <a href="/recipe/create" class="text-xl font-extrabold text-white hover:text-gray-300 mt-3">Buat Resep</a>
                             <a href="" class="text-xl font-extrabold text-white hover:text-gray-300 mt-3">Koleksi Anda</a>
                         </div>
                     </div>
