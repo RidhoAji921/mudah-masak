@@ -58,6 +58,56 @@
                     </div>
                     <div id="ingredients-container" class="flex flex-wrap gap-2"></div>
                     <input type="hidden" name="ingredients" id="ingredients-input">
+                    <table id="ingredients-details-container">
+                        <tr>
+                            <td>Bawang putih</td>
+                            <td>
+                                <input type="text" placeholder="masukkan jumlah" class="ml-4 border-b-black border-2 text-right">
+                                <select name="unit" id="unit">
+                                    <option value="gram">Gram (Massa)</option>
+                                    <option value="kilogram">Kilogram (Massa)</option>
+                                    <option value="liter">Liter (Volume)</option>
+                                    <option value="mililiter">Mililiter (Volume)</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Bawang merah</td>
+                            <td>
+                                <input type="text" placeholder="masukkan jumlah" class="ml-4 border-b-black border-2 text-right">
+                                <select name="unit" id="unit">
+                                    <option value="gram">Gram (Massa)</option>
+                                    <option value="kilogram">Kilogram (Massa)</option>
+                                    <option value="liter">Liter (Volume)</option>
+                                    <option value="mililiter">Mililiter (Volume)</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Gula</td>
+                            <td>
+                                <input type="text" placeholder="masukkan jumlah" class="ml-4 border-b-black border-2 text-right">
+                                <select name="unit" id="unit">
+                                    <option value="gram">Gram (Massa)</option>
+                                    <option value="kilogram">Kilogram (Massa)</option>
+                                    <option value="liter">Liter (Volume)</option>
+                                    <option value="mililiter">Mililiter (Volume)</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Saus tiram</td>
+                            <td>
+                                <input type="text" placeholder="masukkan jumlah" class="ml-4 border-b-black border-2 text-right">
+                                <select name="unit" id="unit">
+                                    <option value="gram">Gram (Massa)</option>
+                                    <option value="kilogram">Kilogram (Massa)</option>
+                                    <option value="liter">Liter (Volume)</option>
+                                    <option value="mililiter">Mililiter (Volume)</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div class="mt-4">
                     <div class="flex mb-2">
