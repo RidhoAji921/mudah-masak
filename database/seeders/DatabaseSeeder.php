@@ -26,8 +26,9 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call([
             // CategorySeeder::class,
-            IngredientSeeder::class,
-            ToolSeeder::class,
+            // IngredientSeeder::class,
+            // ToolSeeder::class,
+            UnitSeeder::class,
         ]);
     }
 }
