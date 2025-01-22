@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Unit;
 use Illuminate\Http\Request;
 
 class RecipeController extends Controller
 {
     function createView() {
-        return view('create_recipe');
+        $units = Unit::all();
+        return view('create_recipe', compact('units'));
     }
 
     function store(Request $request) {

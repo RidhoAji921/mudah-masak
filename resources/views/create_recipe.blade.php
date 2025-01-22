@@ -287,15 +287,15 @@
                                     // selectedIngredients.push(ingredientId);
                                     let container = $('#ingredients-details-container');
                                     const name = $(this).text().trim();
-                                    const HTMLinput = `<tr id="ingredient-${ingredientId}">
+                                    const units = @json($units);
+                                    console.log(units);
+                                    const HTMLunits = units.map(unit => `<option value="${unit.id}">${unit.name} (${unit.base_unit})</option>`).join('');
+                                    const HTMLinput = (units) => `<tr id="ingredient-${ingredientId}">
                                         <td>${name}</td>
                                         <td>
                                             <input type="text" name="ingredients[${ingredientId}][amount]" placeholder="masukkan jumlah" class="ml-4 border-b-black border-2 text-right">
                                             <select name="ingredients[${ingredientId}][unit]" id="unit">
-                                                <option value="gram">Gram (Massa)</option>
-                                                <option value="kilogram">Kilogram (Massa)</option>
-                                                <option value="liter">Liter (Volume)</option>
-                                                <option value="mililiter">Mililiter (Volume)</option>
+                                                ${HTMLunits}
                                             </select>
                                         </td>
                                     </tr>`;
