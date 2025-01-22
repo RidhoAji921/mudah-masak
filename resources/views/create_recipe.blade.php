@@ -14,8 +14,8 @@
             <form action="/recipe/store" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="flex gap-2">
-                    <label for="nama">Nama Resep</label>
-                    <input type="text" name="nama" id="nama" class="border-b-[1px] border-black focus:border-b-2 focus:outline-none flex-1 box-border">
+                    <label for="name">Nama Resep</label>
+                    <input type="text" name="name" id="name" class="border-b-[1px] border-black focus:border-b-2 focus:outline-none flex-1 box-border">
                 </div>
                 <div class="flex flex-col">
                     <label>Gambar Tampilan</label>
@@ -70,7 +70,7 @@
                     <div class="flex flex-col gap-2" id="steps-container">
                         <div class="flex flex-col gap-2 p-2 border-black border-2 rounded-md step">
                             <h2 class="font-medium">Langkah 1</h2>
-                            <input type="text" name="steps[1][title]" id="steps[1][title]" placeholder="Langkah 1" class="border-b-[1px] border-black focus:border-b-2 focus:outline-none flex-1 box-border">
+                            <input type="text" name="steps[1][name]" id="steps[1][name]" placeholder="Langkah 1" class="border-b-[1px] border-black focus:border-b-2 focus:outline-none flex-1 box-border">
                             <textarea 
                                 name="steps[1][description]" 
                                 id="steps[1][description]" 
@@ -104,7 +104,7 @@
                                 <h2 class="font-medium">Langkah ${stepCount}</h2>
                                 <svg class="remove-step cursor-pointer" xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-trash"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l16 0" /><path d="M10 11l0 6" /><path d="M14 11l0 6" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg>
                             </div>
-                            <input type="text" name="steps[${stepCount}][title]" id="nama" placeholder="Langkah 1" class="border-b-[1px] border-black focus:border-b-2 focus:outline-none flex-1 box-border">
+                            <input type="text" name="steps[${stepCount}][name]" id="steps[${stepCount}][name]" placeholder="Langkah 1" class="border-b-[1px] border-black focus:border-b-2 focus:outline-none flex-1 box-border">
                             <textarea 
                                 name="steps[${stepCount}][description]" 
                                 id="steps[${stepCount}][description]" 
@@ -284,14 +284,14 @@
                                 $(this).toggleClass('selected');
 
                                 if ($(this).hasClass('selected')) {
-                                    selectedIngredients.push(ingredientId);
+                                    // selectedIngredients.push(ingredientId);
                                     let container = $('#ingredients-details-container');
                                     const name = $(this).text().trim();
                                     const HTMLinput = `<tr id="ingredient-${ingredientId}">
                                         <td>${name}</td>
                                         <td>
-                                            <input type="text" name="amount-${ingredientId}" placeholder="masukkan jumlah" class="ml-4 border-b-black border-2 text-right">
-                                            <select name="unit-${ingredientId}" id="unit">
+                                            <input type="text" name="ingredients[${ingredientId}][amount]" placeholder="masukkan jumlah" class="ml-4 border-b-black border-2 text-right">
+                                            <select name="ingredients[${ingredientId}][unit]" id="unit">
                                                 <option value="gram">Gram (Massa)</option>
                                                 <option value="kilogram">Kilogram (Massa)</option>
                                                 <option value="liter">Liter (Volume)</option>
@@ -301,11 +301,11 @@
                                     </tr>`;
                                     container.append(HTMLinput);
                                 } else {
-                                    selectedIngredients = selectedIngredients.filter(id => id !== ingredientId);
+                                    // selectedIngredients = selectedIngredients.filter(id => id !== ingredientId);
                                     $(`#ingredient-${ingredientId}`).remove();
                                 }
 
-                                $('#ingredients-input').val(selectedIngredients);
+                                // $('#ingredients-input').val(selectedIngredients);
                             });
                         },
                         error: function () {
