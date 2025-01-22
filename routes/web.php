@@ -34,3 +34,4 @@ Route::get('/search-post', [SearchController::class, 'searchPostPage'])->name('p
 Route::get('/user/{username}', [UserController::class, 'userView'])->name('user');
 
 Route::get('/recipe/create', [RecipeController::class, 'createView'])->middleware('auth')->name('recipe-create');
+Route::post('/recipe/store', [RecipeController::class, 'store'])->middleware('auth')->name('recipe-store');

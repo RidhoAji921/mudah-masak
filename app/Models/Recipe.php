@@ -22,4 +22,9 @@ class Recipe extends Model
     {
         return $this->belongsToMany(Tool::class, 'tool_post');
     }
+
+    public function steps()
+    {
+        return $this->hasMany(RecipeStep::class)->orderBy('step_number');
+    }
 }
