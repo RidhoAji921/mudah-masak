@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.0/min/dropzone.min.css" />
+        @vite('resources/css/app.css')
+        <title>Resep Nasi Goreng</title>
+    </head>
+    <body class="overflow-x-hidden mt-[50px]">
+        @include("layouts.header")
+        <section class="w-full h-[60vh] bg-black flex justify-center items-center">
+            <img src="{{ asset('assets/img/pexels-anntarazevich-6937455.jpg') }}" alt="Nasi Goreng" class="h-full">
+        </section>
+        <section class="py-2 px-3">
+            {{-- <div class="flex flex-wrap gap-2">
+                @foreach ($post->categories as $category)
+                    <div class="p-1 bg-orange-300 rounded-md">{{ $category->category }}</div>
+                @endforeach
+            </div> --}}
+            <div class="flex justify-between">
+                <div class="flex gap-2">
+                    <h2 class="text-xl font-semibold">Resep Nasi Goreng</h2>
+                    <h2 class="text-xl font-normal">oleh <a href="/" class="hover:text-gray-700">Ridho Aji</a></h2>
+                    {{-- @if (auth()->id() == $post->user_id)
+                    <div class="flex">
+                        <a href=""><svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-pencil"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" /><path d="M13.5 6.5l4 4" /></svg></a>
+                        <a href=""><svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-trash"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l16 0" /><path d="M10 11l0 6" /><path d="M14 11l0 6" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg></a>
+                    </div>
+                    @endif --}}
+                </div>
+                <div class="flex gap-2">
+                    <div class="flex gap-1">
+                        <p>10</p>
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-thumb-up"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 11v8a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1v-7a1 1 0 0 1 1 -1h3a4 4 0 0 0 4 -4v-1a2 2 0 0 1 4 0v5h3a2 2 0 0 1 2 2l-1 5a2 3 0 0 1 -2 2h-7a3 3 0 0 1 -3 -3" /></svg>
+                    </div>
+                    <div class="flex gap-1">
+                        <p>100</p>
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-message-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1" /></svg>
+                    </div>
+                </div>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro vero, debitis magni quibusdam nisi labore perspiciatis atque minus dicta culpa. Tempora voluptatem iusto quam nesciunt vero molestiae suscipit deserunt perspiciatis.</p>
+        </section>
+        <section class="py-2 px-3">
+            <h2 class="text-xl font-medium">Alat-alat</h2>
+            <ul>
+                <li class="list-inside list-disc">Wajan</li>
+                <li class="list-inside list-disc">Cobek</li>
+                <li class="list-inside list-disc">Sodet</li>
+            </ul>
+        </section>
+        <section class="py-2 px-3">
+            <h2 class="text-xl font-medium">Bahan</h2>
+            <table>
+                <tr>
+                    <th>Bahan</th>
+                    <th class="pl-7">Jumlah</th>
+                </tr>
+                <tr>
+                    <td>Cabe Merah</td>
+                    <td class="pl-7">5 Biji</td>
+                </tr>
+                <tr>
+                    <td>Bawang Putih</td>
+                    <td class="pl-7">3 Siung</td>
+                </tr>
+                <tr>
+                    <td>Bawang Merah</td>
+                    <td class="pl-7">3 Siung</td>
+                </tr>
+                <tr>
+                    <td>Garam</td>
+                    <td class="pl-7">1 Sendok teh</td>
+                </tr>
+                <tr>
+                    <td>Kecap</td>
+                    <td class="pl-7">1 Sendok Makan</td>
+                </tr>
+            </table>
+        </section>
+        <section class="py-2 px-3">
+            <h2 class="text-xl font-medium">Langkah-langkah</h2>
+            <ul>
+                <li class="list-inside list-decimal">Ulek bahan bahan yang sudah disiapkan</li>
+                <li class="list-inside list-decimal">Cobek</li>
+                <li class="list-inside list-decimal">Sodet</li>
+            </ul>
+        </section>
+    </body>
+</html>

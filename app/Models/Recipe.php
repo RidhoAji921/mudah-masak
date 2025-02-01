@@ -15,12 +15,12 @@ class Recipe extends Model
 
     public function ingredients()
     {
-        return $this->belongsToMany(Ingredient::class, 'ingredient_post');
+        return $this->belongsToMany(Ingredient::class, 'ingredient_recipe')->withPivot("amount", "unit_id");
     }
 
     public function tools()
     {
-        return $this->belongsToMany(Tool::class, 'tool_post');
+        return $this->belongsToMany(Tool::class, 'tool_recipe');
     }
 
     public function steps()
