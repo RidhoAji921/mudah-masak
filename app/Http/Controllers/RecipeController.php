@@ -11,9 +11,11 @@ use Illuminate\Support\Str;
 
 class RecipeController extends Controller
 {
-    public function show()
+    public function show($slug)
     {
-        return view('recipe');
+        $recipe = Recipe::with(['author', 'categories', 'tools', 'ingredients', 'steps'])->where('slug', $slug)->firstOrFail();
+        $units = Unit::pluck('abbreviation', 'id');
+        return view('recipe', compact('recipe', 'units'));
     }
     function createView() {
         $units = Unit::all();
@@ -33,7 +35,7 @@ class RecipeController extends Controller
             'steps' => 'required|array',
             'steps.*.name' => 'required|string',
             'steps.*.description' => 'nullable|string',
-            'steps.*.image' => 'nullable|image|max:2048',
+            'steps.*.image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $validatedRequest['slug'] = Str::slug($validatedRequest['name'])."-".time();
         $validatedRequest['user_id'] = Auth::user()->id;
@@ -92,11 +94,11 @@ class RecipeController extends Controller
 
         if ($request->has('steps')) {
             $loopIndex = 0;
-            foreach ($request->input('steps') as $step) {
+            foreach ($request->input('steps') as $index => $step) {
                 $stepImageName = null;
-                if(isset($step['image'])){
-                    $stepImageName = $step['name'].'.'.$step['image']->getClientOriginalExtension();
-                    $step['image']->move(public_path('images/'.$validatedRequest['user_id']), $stepImageName);
+                if($request->hasFile("steps.$index.image")){
+                    $stepImageName = $step['name'].'.'.$request->file("steps.$index.image")->getClientOriginalExtension();
+                    $request->file("steps.$index.image")->move(public_path('images/'.$validatedRequest['user_id']), $stepImageName);
                 }
                 RecipeStep::create([
                     'recipe_id' => $recipe->id,

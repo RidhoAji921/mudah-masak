@@ -5,12 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.0/min/dropzone.min.css" />
         @vite('resources/css/app.css')
-        <title>Resep Nasi Goreng</title>
+        <title>{{ $recipe->name }}</title>
     </head>
     <body class="overflow-x-hidden mt-[50px]">
         @include("layouts.header")
         <section class="w-full h-[60vh] bg-black flex justify-center items-center">
-            <img src="{{ asset('assets/img/pexels-anntarazevich-6937455.jpg') }}" alt="Nasi Goreng" class="h-full">
+            <img src="{{ "\\images\\".$recipe->user_id."\\".$recipe->thumbnail }}" alt="{{ $recipe->slug }}" class="h-full">
         </section>
         <section class="py-2 px-3">
             {{-- <div class="flex flex-wrap gap-2">
@@ -20,8 +20,8 @@
             </div> --}}
             <div class="flex justify-between">
                 <div class="flex gap-2">
-                    <h2 class="text-xl font-semibold">Resep Nasi Goreng</h2>
-                    <h2 class="text-xl font-normal">oleh <a href="/" class="hover:text-gray-700">Ridho Aji</a></h2>
+                    <h2 class="text-xl font-semibold">{{ $recipe->name }}</h2>
+                    <h2 class="text-xl font-normal">oleh <a href="{{ auth()->id() == $recipe->user_id? "/profile" : "/user/".$recipe->author->username }}" class="hover:text-gray-700">{{ $recipe->author->name }}</a></h2>
                     {{-- @if (auth()->id() == $post->user_id)
                     <div class="flex">
                         <a href=""><svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-pencil"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" /><path d="M13.5 6.5l4 4" /></svg></a>
@@ -40,14 +40,14 @@
                     </div>
                 </div>
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro vero, debitis magni quibusdam nisi labore perspiciatis atque minus dicta culpa. Tempora voluptatem iusto quam nesciunt vero molestiae suscipit deserunt perspiciatis.</p>
+            <p>{{ $recipe->description }}</p>
         </section>
         <section class="py-2 px-3">
             <h2 class="text-xl font-medium">Alat-alat</h2>
             <ul>
-                <li class="list-inside list-disc">Wajan</li>
-                <li class="list-inside list-disc">Cobek</li>
-                <li class="list-inside list-disc">Sodet</li>
+                @foreach ($recipe->tools as $tool)
+                <li class="list-inside list-disc">{{ $tool->name }}</li>
+                @endforeach
             </ul>
         </section>
         <section class="py-2 px-3">
@@ -57,34 +57,26 @@
                     <th>Bahan</th>
                     <th class="pl-7">Jumlah</th>
                 </tr>
+                @foreach ($recipe->ingredients as $ingredient)
                 <tr>
-                    <td>Cabe Merah</td>
-                    <td class="pl-7">5 Biji</td>
+                    <td>{{ $ingredient->name }}</td>
+                    <td class="pl-7">{{ $ingredient->pivot->amount }} {{ $units[$ingredient->pivot->unit_id] }}</td>
                 </tr>
-                <tr>
-                    <td>Bawang Putih</td>
-                    <td class="pl-7">3 Siung</td>
-                </tr>
-                <tr>
-                    <td>Bawang Merah</td>
-                    <td class="pl-7">3 Siung</td>
-                </tr>
-                <tr>
-                    <td>Garam</td>
-                    <td class="pl-7">1 Sendok teh</td>
-                </tr>
-                <tr>
-                    <td>Kecap</td>
-                    <td class="pl-7">1 Sendok Makan</td>
-                </tr>
+                @endforeach
             </table>
         </section>
         <section class="py-2 px-3">
             <h2 class="text-xl font-medium">Langkah-langkah</h2>
-            <ul>
-                <li class="list-inside list-decimal">Ulek bahan bahan yang sudah disiapkan</li>
-                <li class="list-inside list-decimal">Cobek</li>
-                <li class="list-inside list-decimal">Sodet</li>
+            <ul class="flex flex-col gap-1">
+                @foreach ($recipe->steps as $step)
+                <div class="w-full border-black border p-3 rounded-md">
+                    <li class="list-inside list-decimal font-semibold">{{ $step->step_name }}</li>
+                    <p>{{ $step->description }}</p>
+                    @if ($step->image)
+                        <img class="h-[200px]" src="{{ "\\images\\".$recipe->user_id."\\".$step->image }}" alt="{{ $step->step_name }}">
+                    @endif
+                </div>
+                @endforeach
             </ul>
         </section>
     </body>

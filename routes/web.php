@@ -32,4 +32,4 @@ Route::get('/user/{username}', [UserController::class, 'userView'])->name('user'
 
 Route::get('/recipe/create', [RecipeController::class, 'createView'])->middleware('auth')->name('recipe-create');
 Route::post('/recipe/store', [RecipeController::class, 'store'])->middleware('auth')->name('recipe-store');
-Route::get('/recipe', [RecipeController::class, 'show'])->name('recipe');
+Route::get('/recipe/{slug}', [RecipeController::class, 'show'])->name('recipe.show');
